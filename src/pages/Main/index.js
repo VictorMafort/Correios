@@ -1,6 +1,10 @@
 import React, { useState} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import IconFeather from 'react-native-vector-icons/Feather';
+import IconMaterial from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconEntypo from 'react-native-vector-icons/Entypo';
+import { ImageBackground, StyleSheet } from 'react-native';
+
+import { Grayscale } from 'react-native-color-matrix-image-filters';
 
 import {
     Container,
@@ -9,9 +13,14 @@ import {
     All,
 } from './styles';
 
-import IconFeather from 'react-native-vector-icons/Feather';
-import IconMaterial from 'react-native-vector-icons/MaterialCommunityIcons';
-import IconEntypo from 'react-native-vector-icons/Entypo';
+const image = { uri: "http://realinstitutodeoncologia.com.br/wp-content/uploads/2017/07/white-background-image-3.jpg" };
+
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    opacity: 1,
+  },
+});
 
 const Main = () => {
     const [iconConfigure] = useState({
@@ -20,7 +29,8 @@ const Main = () => {
     })
 
     return (
-     
+        
+        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <All>
             
             <Container>
@@ -63,6 +73,8 @@ const Main = () => {
                 <GroupAction></GroupAction>
             </Container>
         </All>
+        
+        </ImageBackground>
     )
 }
 
